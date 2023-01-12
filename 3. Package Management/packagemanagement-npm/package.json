@@ -1,0 +1,25 @@
+{
+  "name": "packagemanagement-npm",
+  "version": "0.0.1",
+  "description": "Learning about NPM package manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "premycmd": "echo \"Before custom command\"",
+    "mycmd": "echo \"Custom command\"",
+    "postmycmd": "echo \"After custom command\"",
+    "runtest": "node test.js",
+    "argcmd": "echo \"Passing arguments\"",
+    "build:dev": "echo \"Building in dev environment\"",
+    "build:test": "echo \"Building in test environment\"",
+    "build:prod": "echo \"Building in prod environment\""
+  },
+  "author": "Kunal Mukherjee",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "colors": "^1.4.0"
+  }
+}
