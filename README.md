@@ -105,9 +105,9 @@
 
     - **buffer module**
         - Create a new buffer by using following parameterized constructors
-            - Allocate a new buffer of size octets `new Buffer(size);`
-            - Allocate a new buffer using an array of octets `new Buffer(array);`
-            - Allocate a new buffer containing the given str. encoding defaults to 'utf8' - `new Buffer(str, [encoding]);`
+            - Allocate a new buffer of size octets `Buffer.alloc(size);`
+            - Allocate a new buffer using an array of octets `Buffer.from(array);`
+            - Allocate a new buffer containing the given str. encoding defaults to 'utf8' - `Buffer.from(str, [encoding]);`
         - Validate the encoding of a buffer by passing an encoding parameter `Buffer.isEncoding(encoding);`
         - Test if an object is a Buffer `Buffer.isBuffer(obj);`
         - Concatenating all the buffers in the array together. `Buffer.concat(list, [totalLength]);`
