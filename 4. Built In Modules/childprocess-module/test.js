@@ -1,0 +1,1 @@
+console.log('Output from spawn child process');
