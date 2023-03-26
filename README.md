@@ -270,18 +270,34 @@
         - Create duplex streams
         - Create transform streams
 
-    - **zlib module**
-        - Create compressed gzip buffer `zlib.gzip(data, (err, compressed) => {`
-        - Get original decompressed buffer back `zlib.unzip(compressed, (err, decompressed) => {`
-
     - **crypto module**
         - Generate pseudo-random buffer `crypto.randomBytes(size[, callback])`
         - Generate a random integer n such that `min <= n < max` `crypto.randomInt([min, ]max[, callback])`
         - Generate a random UUIDv4 `crypto.randomUUID([options])`
-        - Calculate hashes `crypto.createHash(algorithm[, options])`
-        - Create HMACs `crypto.createHmac(algorithm, key[, options])`
-        - Create encrypted cipher object `crypto.createCipheriv(algorithm, key, iv, options);`
-        - Create decrypted cipher object `crypto.createCipheriv(algorithm, key, iv, options);`
+        - Create hashes
+            - [`MD5`, `SHA256`, `SHA384`, `SHA512`] `crypto.createHash(algorithm[, options])`
+            - pbkdf2 `crypto.pbkdf2(secret, salt, iterations, keyLength, hashingAlgorithm, (err, derivedKey) => {`
+            - Create salt and hash using [`bcrypt npm module`](https://www.npmjs.com/package/bcrypt)
+
+        - Symmetric key encryption
+            - Create encrypted cipher object using AES-256-GCM algorithm `crypto.createCipheriv(algorithm, key, iv, options);`
+            - Create decrypted cipher object using AES-256-GCM algorithm `crypto.createDecipheriv(algorithm, key, iv, options);`
+
+        - Asymmetric key encryption
+            - Generate `RSA 2048/4096/7168/15360 bit public-private key pair` using OpenSSL in `.key` files.
+            - Encrypt a plain text string using `crypto.publicEncrypt(publicKey, buffer);`
+            - Decrypt a encrypted buffer using `crypto.privateDecrypt({ key: 'publickey', passphrase: '' }, buffer)`
+            - Sign and Verify a JWT token using [`jsonwebtoken npm module`](https://github.com/auth0/node-jsonwebtoken) using the RSA keys generated previously.
+
+        - Digital Signatures using Elliptic Curve Cryptography
+            - Generate `ECDSA NIST P-256/NIST P-384/NIST P-512/ed25519 bit public-private key pair` using OpenSSL in `PEM` format.
+            - Sign a plain text string using `crypto.createSign('Digest algorithm name')` and `sign.sign(privateKeyBuffer).toString('hex')`
+            - Verify the signature using `crypto.createVerify('Digest algorithm name')` and `verifyObj.verify(publicKeyBuffer, signature, 'hex');`
+            - Sign and Verify a JWT token using [`jsonwebtoken npm module`](https://github.com/auth0/node-jsonwebtoken) using the ECDSA keys generated previously.
+
+    - **zlib module**
+        - Create compressed gzip buffer `zlib.gzip(data, (err, compressed) => {`
+        - Get original decompressed buffer back `zlib.unzip(compressed, (err, decompressed) => {`
 
     - **url module**
         - Return a JavaScript object of the input URL string `url.parse(urlStr, [parseQueryString], [slashesDenoteHost]);`
@@ -349,25 +365,26 @@
         - Send a file from the server's disk by its filepath `res.sendFile(path [, options] [, fn]);`
         - Send arbitrary data without worrying its type `res.send(object);`
 
-6. **Case Study 1) Uploading files**
+6. **Case Study 1: Uploading files**
     - Upload file using `multer` module
     - Store uploaded file in Azure Blob Storage
     - Show uploaded file using EJS templating
 
-7. **Case Study 2) Generate Excel files**
+7. **Case Study 2: Generate Excel files**
     - Generate Excel file report
 
-8. **Case Study 3) CRUD API using Postgres without ORM**
+8. **Case Study 3: CRUD API using Postgres without ORM**
     - Perform request validation using `ajv` module
     - Create CRUD API using `pg` module and provide following endpoints:
         - **Offset pagination** `/api/employees?page=1&limit=10`
+        - **Keyset pagination** `/api/employees?searchAfter=b1333cad9d7c4a648823db8c9aa55646&limit=10`
         - **Get single by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Create** `/api/employees`
         - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
-9. **Case Study 4) CRUD API using Postgres with Sequelize ORM**
+9. **Case Study 4: CRUD API using Postgres with Sequelize ORM**
     - Installing and configuring `Sequelize ORM`
     - Creating models
     - Model associations
@@ -376,7 +393,7 @@
     - Creating and applying migrations
     - Perform request validation using `ajv` module
 
-10. **Case Study 5) CRUD API using Mongoose ODM for MongoDB**
+10. **Case Study 5: CRUD API using Mongoose ODM for MongoDB**
     - Understanding MongoDB
     - Installing and configuring `Mongoose ODM`
     - Creating models
@@ -391,26 +408,26 @@
         - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
-11. **Case Study 6) Add Caching to existing API using Redis Cache**
+11. **Case Study 6: Add Caching to existing API using Redis Cache**
     - Installing and configuring `ioredis`
     - Using various redis datatypes (strings, hashes, etc.) to cache responses of the API.
 
-12. **Case Study 7) Add Authentication and Authorization**
+12. **Case Study 7: Add Authentication and Authorization**
     - Authenticate routes using Express.js middlewares and issue JWTs by using `jsonwebtoken` module
     - Add role based authorization using `accesscontrol` module
 
-13. **Case Study 8) Synchronous Inter-Service communication using gRPC and HTTP2**
+13. **Case Study 8: Synchronous Inter-Service communication using gRPC and HTTP2**
     - Build a gateway API and internal API communicating with each other synchronously using gRPC `@grpc/grpc-js`
 
-14. **Case Study 9) Asynchronous Inter-Service communication using Azure Service Bus**
+14. **Case Study 9: Asynchronous Inter-Service communication using Azure Service Bus**
     - Build a gateway API and internal API communicating with each other asynchronously using Azure Service Bus.
 
-15. **Case Study 10) Add Unit Tests**
+15. **Case Study 10: Add Unit Tests**
     - Add unit tests to existing CRUD API using `jest`
     - Mock dependencies using `jest`
 
-16. **Case Study 11) Add Integration Tests**
+16. **Case Study 11: Add Integration Tests**
     - Add integration tests to existing CRUD API using `supertest`
 
-17. **Case Study 12) Add clustering to existing API**
+17. **Case Study 12: Add clustering to existing API**
     - Add clustering support to existing CRUD API using `pm2` module.
