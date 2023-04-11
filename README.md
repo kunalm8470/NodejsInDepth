@@ -296,8 +296,8 @@
             - Sign and Verify a JWT token using [`jsonwebtoken npm module`](https://github.com/auth0/node-jsonwebtoken) using the ECDSA keys generated previously.
 
     - **zlib module**
-        - Create compressed gzip buffer `zlib.gzip(data, (err, compressed) => {`
-        - Get original decompressed buffer back `zlib.unzip(compressed, (err, decompressed) => {`
+        - Create compressed gzip files (`.gz`) using `zlib.createGzip`
+        - Get original decompressed file back `zlib.createGunzip`
 
     - **url module**
         - Return a JavaScript object of the input URL string `url.parse(urlStr, [parseQueryString], [slashesDenoteHost]);`
@@ -310,8 +310,7 @@
 
     - **dns module**
         - Get the IPv4 address of the specified hostname using the DNS protocol `dns.resolve4('HOSTNAME', (err, ips) => {`
-        - Get the mail exchange of the specified hostname using the DNS protocol `dns.resolveMx('HOSTNAME', (err, mx) => {`
-        - Get the text queries records of the specified hostname using DNS protocol `dns.resolveTxt('HOSTNAME', (err, txt) => {`
+        - Get the IPv6 address of the specified hostname using the DNS protocol `dns.resolve6('HOSTNAME', (err, ips) => {`
 
     - **http and https module**
         - Create basic REST API using `http` module
