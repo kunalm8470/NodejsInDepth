@@ -376,7 +376,7 @@
     - Perform request validation using `ajv` module
     - Create CRUD API using `pg` module and provide following endpoints:
         - **Offset pagination** `/api/employees?page=1&limit=10`
-        - **Keyset pagination** `/api/employees?searchAfter=b1333cad9d7c4a648823db8c9aa55646&limit=10`
+        - **Keyset pagination** `/api/employees?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646&limit=10`
         - **Get single by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Create** `/api/employees`
         - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
@@ -391,6 +391,14 @@
     - Prepare seed data for migrations
     - Creating and applying migrations
     - Perform request validation using `ajv` module
+    - Create CRUD API using `sequelize` and `pg` module and provide following endpoints:
+        - **Offset pagination** `/api/employees?page=1&limit=10`
+        - **Keyset pagination** `/api/employees?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646&limit=10`
+        - **Get single by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Create** `/api/employees`
+        - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
 10. **Case Study 5: CRUD API using Mongoose ODM for MongoDB**
     - Understanding MongoDB
@@ -401,11 +409,12 @@
     - Perform request validation using `ajv` module
     - Provide following endpoints:
         - **Offset pagination** `/api/employees?page=1&limit=10`
-        - **Get single by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Keyset pagination** `/api/employees?searchAfter=640f3ae1618f0c63c37aa5b0&limit=10`
+        - **Get single by id** `/api/employees/640f3ae1618f0c63c37aa5b0`
         - **Create** `/api/employees`
-        - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Update** `/api/employees/640f3ae1618f0c63c37aa5b0`
+        - **Deleting** `/api/employees/640f3ae1618f0c63c37aa5b0`
+        - **Patching** `/api/employees/640f3ae1618f0c63c37aa5b0`
 
 11. **Case Study 6: Add Caching to existing API using Redis Cache**
     - Installing and configuring `ioredis`
@@ -414,6 +423,7 @@
 12. **Case Study 7: Add Authentication and Authorization**
     - Authenticate routes using Express.js middlewares and issue JWTs by using `jsonwebtoken` module
     - Add role based authorization using `accesscontrol` module
+    - Use Auth0 to issue tokens to Node.js client application, and verify the tokens at server side.
 
 13. **Case Study 8: Synchronous Inter-Service communication using gRPC and HTTP2**
     - Build a gateway API and internal API communicating with each other synchronously using gRPC `@grpc/grpc-js`
