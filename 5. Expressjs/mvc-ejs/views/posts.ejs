@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Posts</title>
+</head>
+
+<body>
+
+    <ul>
+        <% posts.forEach((post)=> { %>
+
+            <li>
+                <h3>
+                    <%= post.id %>
+                </h3>
+                <p>
+                    <%= post.title %>
+                </p>
+            </li>
+
+            <hr>
+
+        <% }); %>
+    </ul>
+
+</body>
+
+</html>
