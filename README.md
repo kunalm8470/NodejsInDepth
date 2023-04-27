@@ -367,7 +367,6 @@
 6. **Case Study 1: Uploading files**
     - Upload file using `multer` module
     - Store uploaded file in Azure Blob Storage
-    - Show uploaded file using EJS templating
 
 7. **Case Study 2: Generate Excel files**
     - Generate Excel file report
