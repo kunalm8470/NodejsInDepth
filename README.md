@@ -374,13 +374,12 @@
 8. **Case Study 3: CRUD API using Postgres without ORM**
     - Perform request validation using `ajv` module
     - Create CRUD API using `pg` module and provide following endpoints:
-        - **Offset pagination** `/api/employees?page=1&limit=10`
-        - **Keyset pagination** `/api/employees?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646_2023-04-17T12:00:25&limit=10`
-        - **Get by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Create** `/api/employees`
-        - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Offset pagination** `/api/notes?page=1&limit=10`
+        - **Keyset pagination** `/api/notes?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646_2023-04-17T12:00:25&limit=10`
+        - **Get by id** `/api/notes/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Create** `/api/notes`
+        - **Update** `/api/notes/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Deleting** `/api/notes/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
 9. **Case Study 4: CRUD API using Postgres with Sequelize ORM**
     - Installing and configuring `Sequelize ORM`
