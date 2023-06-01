@@ -1,0 +1,15 @@
+// Install Sequelize CLI globally
+npm install -g sequelize-cli
+
+// Add Migrations
+npx sequelize-cli migration:generate --name create_students_table
+npx sequelize-cli migration:generate --name create_courses_table
+npx sequelize-cli migration:generate --name create_studentscourses_table
+npx sequelize-cli db:migrate
+# npx sequelize-cli db:migrate:undo:all
+
+// Add Seeders
+npx sequelize-cli seed:generate --name demo-students
+npx sequelize-cli seed:generate --name demo-courses
+npx sequelize-cli db:seed:all
+#npx sequelize-cli db:seed:undo:all
