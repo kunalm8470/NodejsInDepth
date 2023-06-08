@@ -390,13 +390,13 @@
     - Creating and applying migrations
     - Perform request validation using `ajv` module
     - Create CRUD API using `sequelize` and `pg` module and provide following endpoints:
-        - **Offset pagination** `/api/employees?page=1&limit=10`
-        - **Keyset pagination** `/api/employees?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646_2023-04-17T12:00:25&limit=10`
-        - **Get by id** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Create** `/api/employees`
-        - **Update** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Deleting** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Patching** `/api/employees/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Offset pagination** `/api/students?page=1&limit=10`
+        - **Keyset pagination** `/api/students?searchAfter=b1333cad-9d7c-4a64-8823-db8c9aa55646_2023-04-17T12:00:25&limit=10`
+        - **Get by id** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Create** `/api/students`
+        - **Update** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Deleting** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
+        - **Patching** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
 10. **Case Study 5: CRUD API using Mongoose ODM for MongoDB**
     - Understanding MongoDB
@@ -406,13 +406,13 @@
     - Writing complex aggregate queries
     - Perform request validation using `ajv` module
     - Provide following endpoints:
-        - **Offset pagination** `/api/employees?page=1&limit=10`
-        - **Keyset pagination** `/api/employees?searchAfter=640f3ae1618f0c63c37aa5b0_2023-04-17T12:00:25&limit=10`
-        - **Get by id** `/api/employees/640f3ae1618f0c63c37aa5b0`
-        - **Create** `/api/employees`
-        - **Update** `/api/employees/640f3ae1618f0c63c37aa5b0`
-        - **Deleting** `/api/employees/640f3ae1618f0c63c37aa5b0`
-        - **Patching** `/api/employees/640f3ae1618f0c63c37aa5b0`
+        - **Offset pagination** `/api/students?page=1&limit=10`
+        - **Keyset pagination** `/api/students?searchAfter=640f3ae1618f0c63c37aa5b0_2023-04-17T12:00:25&limit=10`
+        - **Get by id** `/api/students/640f3ae1618f0c63c37aa5b0`
+        - **Create** `/api/students`
+        - **Update** `/api/students/640f3ae1618f0c63c37aa5b0`
+        - **Deleting** `/api/students/640f3ae1618f0c63c37aa5b0`
+        - **Patching** `/api/students/640f3ae1618f0c63c37aa5b0`
 
 11. **Case Study 6: Add Caching to existing API using Redis Cache**
     - Installing and configuring `ioredis`
