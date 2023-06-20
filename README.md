@@ -396,7 +396,6 @@
         - **Create** `/api/students`
         - **Update** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
         - **Deleting** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
-        - **Patching** `/api/students/b1333cad-9d7c-4a64-8823-db8c9aa55646`
 
 10. **Case Study 5: CRUD API using Mongoose ODM for MongoDB**
     - Understanding MongoDB
@@ -412,7 +411,6 @@
         - **Create** `/api/students`
         - **Update** `/api/students/640f3ae1618f0c63c37aa5b0`
         - **Deleting** `/api/students/640f3ae1618f0c63c37aa5b0`
-        - **Patching** `/api/students/640f3ae1618f0c63c37aa5b0`
 
 11. **Case Study 6: Add Caching to existing API using Redis Cache**
     - Installing and configuring `ioredis`
@@ -420,21 +418,23 @@
 
 12. **Case Study 7: Add Authentication and Authorization**
     - Authenticate routes using Express.js middlewares and issue JWTs by using `jsonwebtoken` module
-    - Add role based authorization using `accesscontrol` module
+    - Add attribute based authorization using `@casl/ability` module
+
+13. **Case Study 7: Add Authentication and Authorization using Auth0 IdP**
     - Use Auth0 to issue tokens to Node.js client application, and verify the tokens at server side.
 
-13. **Case Study 8: Synchronous Inter-Service communication using gRPC and HTTP2**
+14. **Case Study 8: Synchronous Inter-Service communication using gRPC and HTTP2**
     - Build a gateway API and internal API communicating with each other synchronously using gRPC `@grpc/grpc-js`
 
-14. **Case Study 9: Asynchronous Inter-Service communication using Azure Service Bus**
+15. **Case Study 9: Asynchronous Inter-Service communication using Azure Service Bus**
     - Build a gateway API and internal API communicating with each other asynchronously using Azure Service Bus.
 
-15. **Case Study 10: Add Unit Tests**
+16. **Case Study 10: Add Unit Tests**
     - Add unit tests to existing CRUD API using `jest`
     - Mock dependencies using `jest`
 
-16. **Case Study 11: Add Integration Tests**
+17. **Case Study 11: Add Integration Tests**
     - Add integration tests to existing CRUD API using `supertest`
 
-17. **Case Study 12: Add clustering to existing API**
+18. **Case Study 12: Add clustering to existing API**
     - Add clustering support to existing CRUD API using `pm2` module.
