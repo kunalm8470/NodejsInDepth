@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const { randomUUID } = require('crypto');
 const mongoose = require('mongoose');
 
-const { Users, RefreshToken, RefreshTokens } = require('../models');
-const { UserNotFoundError, PasswordNotMatchingError } = require('../errors');
+const { Users, RefreshTokens, RevokedRefreshTokens } = require('../models');
+const { UserNotFoundError, PasswordNotMatchingError, RefreshTokenRevokedError, RefreshTokenNotFoundError } = require('../errors');
 const { getEcdsaPrivateKey } = require('../keys/keyvault.service');
 
 class AccountsService {
@@ -103,12 +103,92 @@ class AccountsService {
         };
     }
 
-    async regenerateAccessToken(userId, refreshToken) {
+    async regenerateAccessToken(refreshToken) {
+        const { payload: refreshTokenClaims } = jwt.decode(refreshToken, { complete: true });
 
+        const userId = new mongoose.Types.ObjectId(refreshTokenClaims.sub);
+
+        /*
+            * Check if refresh token is revoked or not
+            * If revoked, return HTTP 401 Unauthorized.
+        */
+        const revokedRefreshedToken = await RevokedRefreshTokens.findOne({
+            userId
+        }).exec();
+
+        if (revokedRefreshedToken) {
+            throw new RefreshTokenRevokedError('Refresh token is already revoked!');
+        }
+
+        /* 
+            * Check if refresh token is present or not
+            * If not present, return HTTP 401 Unauthorized.
+        */
+        const foundRefreshToken = await RefreshTokens.findOne({
+            userId
+        }).exec();
+
+        if (foundRefreshToken === null) {
+            throw new RefreshTokenNotFoundError('Invalid refresh token');
+        }
+
+        /* 
+            * Check if user is present or not
+            * If not present, return HTTP 404 Not found.
+        */
+        const filter = {
+            _id: userId
+        };
+
+        const foundUser = await Users.findOne(filter).exec();
+
+        if (foundUser === null) {
+            throw new UserNotFoundError(`User with username: ${username} not found!`);
+        }
+
+        const accessTokenClaims = {
+            sub: foundUser._id.toString(),
+            jti: randomUUID(),
+            role: foundUser.role,
+            username: foundUser.username 
+        };
+
+        const ecdsaPrivateKey = await getEcdsaPrivateKey();
+
+        const accessToken = jwt.sign(accessTokenClaims, ecdsaPrivateKey, {
+            algorithm: 'ES512',
+            expiresIn: 15 * 60
+        });
+
+        return {
+            access_token: accessToken,
+            refresh_token: refreshToken,
+            expires_in: 15 * 60
+        };
     }
 
     async revokeRefreshToken(refreshToken) {
+        const { payload: refreshTokenClaims } = jwt.decode(refreshToken, { complete: true });
 
+        const userId = new mongoose.Types.ObjectId(refreshTokenClaims.sub);
+
+        // Persist the refresh token
+        const foundRevokedRefreshToken = await RevokedRefreshTokens.findOne({
+            userId
+        }).exec();
+
+        if (foundRevokedRefreshToken === null) {
+            const newRefreshToken = new RevokedRefreshTokens({
+                userId,
+                token: refreshToken
+            });
+
+            await newRefreshToken.save();
+        } else {
+            foundRevokedRefreshToken.token = refreshToken;
+
+            await foundRevokedRefreshToken.save();
+        }
     }
 }
 
