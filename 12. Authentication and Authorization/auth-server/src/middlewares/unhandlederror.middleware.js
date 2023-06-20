@@ -44,7 +44,7 @@ const UnhandledErrorMiddleware = (err, req, res, next) => {
     }
 
     else if (err instanceof RefreshTokenNotFoundError) {
-        statusCode = StatusCodes.NOT_FOUND;
+        statusCode = StatusCodes.UNAUTHORIZED;
         type = 'Resource not found error';
         message = err.message || 'Refresh token not found.';
     }
