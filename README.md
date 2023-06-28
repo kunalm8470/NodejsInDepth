@@ -420,21 +420,24 @@
     - Authenticate routes using Express.js middlewares and issue JWTs by using `jsonwebtoken` module
     - Add attribute based authorization using `@casl/ability` module
 
-13. **Case Study 7: Add Authentication and Authorization using Auth0 IdP**
+13. **Case Study 8: Add Authentication and Authorization using Auth0 IdP**
     - Use Auth0 to issue tokens to Node.js client application, and verify the tokens at server side.
 
-14. **Case Study 8: Synchronous Inter-Service communication using gRPC and HTTP2**
+14. **Case Study 9: Synchronous Inter-Service communication using gRPC and HTTP2**
     - Build a gateway API and internal API communicating with each other synchronously using gRPC `@grpc/grpc-js`
 
-15. **Case Study 9: Asynchronous Inter-Service communication using Azure Service Bus**
+15. **Case Study 10: Asynchronous Inter-Service communication using Azure Service Bus**
     - Build a gateway API and internal API communicating with each other asynchronously using Azure Service Bus.
 
-16. **Case Study 10: Add Unit Tests**
-    - Add unit tests to existing CRUD API using `jest`
-    - Mock dependencies using `jest`
+16. **Case Study 11: Add Unit Tests**
+    - Add unit tests to existing CRUD API using `mocha`
+    - Mock dependencies using `sinon`
+    - Add expectations using `chai`
 
-17. **Case Study 11: Add Integration Tests**
+17. **Case Study 12: Add Integration Tests**
     - Add integration tests to existing CRUD API using `supertest`
 
-18. **Case Study 12: Add clustering to existing API**
+18. **Case Study 13: Add clustering to existing API**
     - Add clustering support to existing CRUD API using `pm2` module.
+
+19. **Case 14: Hosting Express.js API(s) to Azure App Service**
