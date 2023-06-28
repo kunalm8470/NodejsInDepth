@@ -1,0 +1,19 @@
+<%- include('partials/header') -%>
+
+<div class="card" style="width:400px">
+    <% if (user.picture) { %>
+        <img class="card-img-top" src="<%= user.picture %>" alt="User profile image">
+    <% } %> 
+
+    
+    <div class="card-body">
+      <h4 class="card-title">Hi <%= user.nickname %>!!!!</h4>
+
+      <pre>
+        <%= JSON.stringify(user, null, 4) %>
+      </pre>
+    </div>
+</div>
+
+
+<%- include('partials/footer') -%>

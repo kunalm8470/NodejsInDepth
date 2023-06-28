@@ -1,0 +1,11 @@
+<%- include('partials/header') -%>
+
+<h1>Client application</h1>
+
+<% if (locals.isAuthenticated) { %>
+    <p>You are logged in.</p>
+<% } else { %>
+    <p>Please log in.</p>
+<% } %>
+
+<%- include('partials/footer') -%>

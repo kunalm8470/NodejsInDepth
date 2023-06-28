@@ -1,0 +1,26 @@
+<%- include('partials/header') -%>
+
+<div class="container-fluid">
+
+    <% notes.forEach((note)=> { %>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <%= note.title %>
+                    </div>
+                    <div class="card-body">
+                        <%= note.content %>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <br />
+    <% }); %>
+
+</div>
+
+<%- include('partials/footer') -%>

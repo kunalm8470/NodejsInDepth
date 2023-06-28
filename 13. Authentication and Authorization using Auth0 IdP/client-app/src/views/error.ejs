@@ -1,0 +1,9 @@
+<%- include('partials/header') -%>
+
+<div class="card bg-danger text-white">
+  <div class="card-body">
+    <%= status || "ERROR" %>: "<%= message || "Error" %>"
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
