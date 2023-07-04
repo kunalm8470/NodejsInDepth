@@ -1,0 +1,25 @@
+syntax="proto3";
+
+message Note {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+}
+
+message NotePaginationFilter {
+    int32 page = 1;
+    int32 limit = 2;
+}
+
+message NoteIdFilter {
+    string id = 1;
+}
+
+message NotesList {
+    repeated Note notes = 1;
+}
+
+service NotesService {
+    rpc getNotesPaginated(NotePaginationFilter) returns (NotesList);
+    rpc getNoteById(NoteIdFilter) returns (Note);
+}
