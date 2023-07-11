@@ -1,9 +1,0 @@
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
-    "nodejskt001_SERVICEBUS": "Endpoint=sb://nodejskt001.servicebus.windows.net/;SharedAccessKeyName=Listen;SharedAccessKey=5KR3+ph9Vl57cEXGMY73SMYQ7bfjTEaJA+ASbOcLrDo="
-  }
-}
