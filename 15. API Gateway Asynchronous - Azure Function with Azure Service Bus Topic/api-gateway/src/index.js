@@ -3,6 +3,8 @@ const { UnhandledErrorMiddleware, RouteNotFoundErrorMiddleware } = require('./mi
 
 const app = express();
 
+app.use(express.json());
+
 app.use(require('./routes'));
 
 app.use(RouteNotFoundErrorMiddleware);

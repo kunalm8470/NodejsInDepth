@@ -2,11 +2,13 @@
   "name": "function-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@azure/functions": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {},
+  "main": "src/functions/*.js"
 }
