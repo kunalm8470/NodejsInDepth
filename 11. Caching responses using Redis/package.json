@@ -17,6 +17,6 @@
     "express": "^4.18.2",
     "http-status-codes": "^2.2.0",
     "ioredis": "^5.3.2",
-    "mongoose": "^7.2.2"
+    "mongoose": "^7.3.3"
   }
 }
